@@ -18,3 +18,9 @@ clf.fit(train_data, train_target)
 
 print (clf.predict(test_data))
 print (test_target)
+
+#visualisation
+from IPython.display import Image  
+dot_data = tree.export_graphviz(clf, out_file=None,feature_names=iris.feature_names,class_names=iris.target_names,filled=True, rounded=True,special_characters=True)  
+graph = pydotplus.graph_from_dot_data(dot_data)  
+Image(graph.create_png())  
